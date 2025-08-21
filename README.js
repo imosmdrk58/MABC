@@ -1,176 +1,218 @@
 # Manga & Art Basics Club
 
-一个基于 Next.js App Router + TypeScript + Supabase 的漫画艺术基础俱乐部官方网站。
+Next.js App Router + TypeScript + Supabase tabanlı bir **manga & sanat temel kulübü** resmi web sitesi.
 
-## 功能特性
+## 🎨 Özellikler
 
-### 🏠 首页
-- 俱乐部标题和地址信息
-- 三个主要功能按钮：教程、比赛、作业提交
-- 16:9 海报占位区域
+### 🏠 Ana Sayfa
+- Kulüp başlığı ve adres bilgisi  
+- Üç ana buton: **Eğitimler**, **Yarışmalar**, **Ödev Teslimi**  
+- 16:9 afiş alanı  
 
-### 📚 教程页面
-- 四个分类：数字艺术、快速素描、素描、色彩
-- 教师可上传视频教程
-- 学生可提交作业
-- 支持视频播放和文件上传
+### 📚 Eğitimler Sayfası
+- Dört kategori: **Dijital Sanat**, **Hızlı Karalama**, **Eskiz**, **Renk**  
+- Öğretmenler video yükleyebilir  
+- Öğrenciler ödev gönderebilir  
+- Video oynatma ve dosya yükleme desteği  
 
-### 🏆 比赛页面
-- 显示已发布的比赛列表
-- 管理员和教师可创建/编辑比赛
-- 支持奖项设置和发布状态管理
+### 🏆 Yarışmalar Sayfası
+- Yayınlanan yarışmalar listesi  
+- Admin & öğretmen yarışma oluşturabilir/düzenleyebilir  
+- Ödül ayarları ve yayın durumu yönetimi  
 
-### 👥 关于页面
-- 俱乐部介绍文案
-- 显示所有教师和管理员信息
-- 管理员可在线编辑教师姓名
+### 👥 Hakkında Sayfası
+- Kulüp tanıtım metni  
+- Tüm öğretmenler ve adminler listelenir  
+- Admin öğretmen isimlerini çevrimiçi düzenleyebilir  
 
-### 🔐 认证系统
-- 邮箱密码注册/登录
-- 魔法链接登录
-- 角色权限管理（admin/staff/student）
+### 🔐 Kimlik Doğrulama
+- E-posta & şifre ile kayıt/giriş  
+- Magic link ile giriş  
+- Rol tabanlı yetkilendirme (**admin/staff/student**)  
 
-### 🛠️ 管理后台
-- 用户角色管理
-- 教程内容管理
-- 比赛创建和编辑
-- 作业评分和反馈
-- 文件下载管理
+### 🛠️ Yönetim Paneli
+- Kullanıcı rol yönetimi  
+- Eğitim içerik yönetimi  
+- Yarışma oluşturma & düzenleme  
+- Ödev değerlendirme ve geri bildirim  
+- Dosya indirme yönetimi  
 
-## 技术栈
+---
 
-- **前端**: Next.js 15 + TypeScript + Tailwind CSS
-- **后端**: Supabase (Auth + Database + Storage)
-- **UI组件**: Radix UI + shadcn/ui
-- **状态管理**: React Hooks
-- **认证**: Supabase Auth
-- **数据库**: PostgreSQL with RLS
-- **文件存储**: Supabase Storage
+## ⚙️ Teknoloji Yığını
 
-## 快速开始
+- **Frontend**: Next.js 15 + TypeScript + Tailwind CSS  
+- **Backend**: Supabase (Auth + Database + Storage)  
+- **UI**: Radix UI + shadcn/ui  
+- **Durum Yönetimi**: React Hooks  
+- **Kimlik Doğrulama**: Supabase Auth  
+- **Veritabanı**: PostgreSQL + RLS  
+- **Dosya Depolama**: Supabase Storage  
 
-### 1. 克隆项目
+---
 
+## 🚀 Hızlı Başlangıç
+
+### 1. Projeyi klonla
 ```bash
 git clone <repository-url>
 cd manga-art-club
-```
 
-### 2. 安装依赖
+2. Bağımlılıkları yükle
 
-```bash
 npm install
-```
 
-### 3. 环境配置
+3. Ortam değişkenlerini ayarla
 
-复制 `env.example` 为 `.env.local` 并填写你的 Supabase 配置：
+.env.example dosyasını .env.local olarak kopyala ve düzenle:
 
-```bash
 cp env.example .env.local
-```
 
-编辑 `.env.local` 文件：
+.env.local içeriği:
 
-```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-```
 
-### 4. 数据库设置
+4. Veritabanı kurulum
 
-在 Supabase 中执行以下 SQL 脚本：
+Supabase üzerinde şu SQL scriptlerini çalıştır:
 
-1. 运行 `supabase/schema.sql` 创建数据表和 RLS 策略
-2. 运行 `supabase/storage-policies.sql` 创建存储策略
+1. supabase/schema.sql → tablolar & RLS
 
-### 5. 启动开发服务器
 
-```bash
+2. supabase/storage-policies.sql → depolama politikaları
+
+
+
+5. Geliştirme sunucusunu başlat
+
 npm run dev
-```
 
-访问 [http://localhost:3000](http://localhost:3000) 查看网站。
+Sonra http://localhost:3000 adresini ziyaret et.
 
-## 项目结构
 
-```
+---
+
+📂 Proje Yapısı
+
 manga-art-club/
-├── app/                    # Next.js App Router 页面
-│   ├── admin/             # 管理后台页面
-│   ├── auth/              # 认证相关页面
-│   ├── about/             # 关于页面
-│   ├── competitions/      # 比赛页面
-│   ├── tutorials/         # 教程页面
-│   ├── profile/           # 个人资料页面
-│   └── page.tsx           # 首页
-├── components/             # React 组件
-│   ├── ui/                # UI 基础组件
-│   ├── auth-form.tsx      # 认证表单
-│   └── navbar.tsx         # 导航栏
-├── lib/                    # 工具库
-│   ├── supabase/          # Supabase 配置
-│   └── types.ts           # TypeScript 类型定义
-├── supabase/               # 数据库脚本
-│   ├── schema.sql         # 数据库表结构
-│   └── storage-policies.sql # 存储策略
-└── middleware.ts           # 路由中间件
-```
+├── app/                    # Next.js App Router sayfaları
+│   ├── admin/             # Yönetim paneli
+│   ├── auth/              # Giriş/Kayıt
+│   ├── about/             # Hakkında
+│   ├── competitions/      # Yarışmalar
+│   ├── tutorials/         # Eğitimler
+│   ├── profile/           # Profil
+│   └── page.tsx           # Ana sayfa
+├── components/             # React bileşenleri
+│   ├── ui/                # UI temel bileşenler
+│   ├── auth-form.tsx      # Giriş/Kayıt formu
+│   └── navbar.tsx         # Navigasyon
+├── lib/                    # Yardımcı fonksiyonlar
+│   ├── supabase/          # Supabase ayarları
+│   └── types.ts           # TypeScript tipleri
+├── supabase/               # Veritabanı scriptleri
+│   ├── schema.sql         # Tablo yapıları
+│   └── storage-policies.sql # Depolama politikaları
+└── middleware.ts           # Middleware
 
-## 数据库设计
 
-### 主要数据表
+---
 
-- **profiles**: 用户资料和角色
-- **tutorials**: 教程内容
-- **competitions**: 比赛信息
-- **submissions**: 作业提交
-- **reviews**: 作业评分
+🗄️ Veritabanı Tasarımı
 
-### 权限控制
+Ana tablolar
 
-- **学生**: 查看内容、提交作业
-- **教师**: 上传教程、评分作业
-- **管理员**: 完全访问权限
+profiles → Kullanıcı profili & rol
 
-## 部署
+tutorials → Eğitim içerikleri
 
-### Vercel 部署
+competitions → Yarışmalar
 
-1. 连接 GitHub 仓库到 Vercel
-2. 设置环境变量
-3. 部署
+submissions → Ödev teslimleri
 
-### 其他平台
+reviews → Ödev değerlendirmeleri
 
-项目支持部署到任何支持 Next.js 的平台。
 
-## 开发指南
+Rol tabanlı izinler
 
-### 添加新功能
+Öğrenci: İçerik görüntüleme, ödev teslim etme
 
-1. 在 `lib/types.ts` 中定义类型
-2. 创建相应的页面组件
-3. 更新导航和权限控制
+Öğretmen: Eğitim yükleme, ödev değerlendirme
 
-### 样式修改
+Admin: Tüm erişimler
 
-项目使用 Tailwind CSS，所有样式都在组件中通过原子类定义。
 
-### 数据库修改
 
-1. 修改 `supabase/schema.sql`
-2. 在 Supabase 中执行 SQL
-3. 更新相关的 TypeScript 类型
+---
 
-## 贡献
+☁️ Dağıtım
 
-欢迎提交 Issue 和 Pull Request！
+Vercel ile dağıtım
 
-## 许可证
+1. GitHub repo → Vercel bağla
+
+
+2. Ortam değişkenlerini ekle
+
+
+3. Deploy et
+
+
+
+Diğer platformlar
+
+Next.js destekleyen tüm platformlarda çalışır.
+
+
+---
+
+🛠️ Geliştirme Rehberi
+
+Yeni özellik eklemek
+
+1. lib/types.ts → yeni tip tanımla
+
+
+2. Yeni sayfa/component oluştur
+
+
+3. Navigasyon ve yetkilendirmeyi güncelle
+
+
+
+Stil değiştirme
+
+Tailwind CSS kullanılıyor → sınıf tabanlı stil
+
+Veritabanı değişikliği
+
+1. supabase/schema.sql dosyasını düzenle
+
+
+2. Supabase üzerinde çalıştır
+
+
+3. İlgili TypeScript tiplerini güncelle
+
+
+
+
+---
+
+🤝 Katkıda Bulunma
+
+Issue ve Pull Request gönderebilirsiniz!
+
+
+---
+
+📜 Lisans
 
 MIT License
-# Force deployment
-# Force deployment
+
+İstersen sana bir de **görsel proje yapısı diyagramı** veya **Türkçe veri tabanı ER diyagramı** hazırlayabilirim, ister misin?
+
+  
